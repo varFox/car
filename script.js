@@ -23,17 +23,13 @@ class Car {
   }
 
   getJSON() {
-
     return fetch('file.json').then(response => response.json());
-
   }
 
   getCategory(category) {
-
     this.getJSON().then(json => {
       for (let i = 0; i < json.cars.length; i++) {
         if (category == 'all') {
-
           this.newCard(json.cars[i]);
         } else if (category == json.cars[i].category) {
           this.newCard(json.cars[i]);
@@ -43,15 +39,11 @@ class Car {
   }
 
   upperCaseStr(str) {
-
     return (str[0].toUpperCase() + str.slice(1));
-
   }
-
+  
   sliseStr(str) {
-
     return (str.length > 135) ? (str = str.slice(0, 132) + '...') : str;
-
   }
 }
 
