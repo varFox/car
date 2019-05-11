@@ -16,7 +16,7 @@ class Car {
     card.innerHTML = `<div class="img" style="background: url('${car.img}') no-repeat center; background-size: cover;"></div>
                       <div class="about"><h3 class="name">${car.name}</h3>
                       <p class="category">${this.upperCaseStr(car.category)}</p>
-                      <p class="description">${this.upperCaseStr(this.correction(car.description))}<span class="price">${car.price}$</span></p>
+                      <p class="description">${this.upperCaseStr(this.sliseStr(car.description))}<span class="price">${car.price}$</span></p>
                       <p class="descriptionAll">${this.upperCaseStr(car.description)}<span class="price">${car.price}$</span></p>
                       </div>`;
     this.container.appendChild(card);
@@ -43,14 +43,15 @@ class Car {
   }
 
   upperCaseStr(str) {
-    str = str[0].toUpperCase() + str.slice(1);
-    return str;
-  }
-  
-  correction(str) {
 
-    (str.length > 135) ? (str = str.slice(0, 132) + '...') : str;
-    return str;
+    return (str[0].toUpperCase() + str.slice(1));
+
+  }
+
+  sliseStr(str) {
+
+    return (str.length > 135) ? (str = str.slice(0, 132) + '...') : str;
+
   }
 }
 
